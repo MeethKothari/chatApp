@@ -2,7 +2,7 @@
     import useGetMessages from '../../contexts/useGetMessages';
     import useSendMessages from '../../contexts/useSendMessages';
     import useConversation from '../../stateManagement/userConversation';
-    import Message from './message';
+    import Message from './Message';
     import { useSocketContext } from "../../contexts/socketContext";
     import useSocketMessages from '../../contexts/useSocketMessages';
 
