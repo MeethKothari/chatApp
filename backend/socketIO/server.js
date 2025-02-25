@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5173", "https://chat-app-chi-puce.vercel.app"], // Allow both
+        origin: ["http://localhost:5173", 'http://localhost:5174', "https://chat-app-chi-puce.vercel.app" ], // Allow both
         method: ["GET", "POST"]
     }
 });
