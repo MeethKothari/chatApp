@@ -26,10 +26,10 @@ catch(error){
 
 // Middlewares
 app.use(cors({
-    origin: "http://localhost:5173", // Allow frontend
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow 'Authorization'
-    credentials: true // Allow cookies & auth
+    origin: ["http://localhost:5173", "https://chat-app-chi-puce.vercel.app"], // Allow both localhost & vercel
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
 }));
 
 app.options("*", cors()); // Handle Preflight requests

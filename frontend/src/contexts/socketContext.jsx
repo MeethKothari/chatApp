@@ -19,7 +19,9 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         if (authUser){
-           const socket = io("http://localhost:8082/", {
+           let url = "https://chatapp-aalw.onrender.com"
+           //let url = "http://localhost:8082/"
+           const socket = io(url, {
             query: {
                userId: authUser.user._id,
             },
