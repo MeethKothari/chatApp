@@ -56,7 +56,7 @@ export const SocketProvider = ({ children }) => {
                 setSocket(null);
             }
         }
-    }, [authUser]);
+    }, [authUser, messages]);
 
 
     return (

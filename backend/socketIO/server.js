@@ -21,6 +21,7 @@ const users = {}
 
 // code for real time messages
 const getReceiverSocketId = (receiverId) => {
+    console.log('getReceiverSocketId', receiverId)
     return users[receiverId];
 }
 
