@@ -46,11 +46,11 @@
         // scroll to last message
         const lastMessageRef = useRef();
         useEffect(() => {
-            setTimeout(() => {
+            // setTimeout(() => {
                 if (lastMessageRef.current) {
                     lastMessageRef.current.scrollIntoView({ behavior: "smooth" })
                 }
-            }, 100)
+            // }, 100)
         }, [messages])
 
         return (

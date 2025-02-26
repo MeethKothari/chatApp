@@ -14,13 +14,13 @@ const { io, getReceiverSocketId } = require("../socketIO/server");
 const sendMessage = async(req, res) => {
     try{
         const {message} = req.body; // destructured value
-        console.log('Message :', message); //how are you....
+        //console.log('Message :', message); //how are you....
 
         const {id: receiverId} = req.params; // receivers id
-        console.log("Receiver :", receiverId) //67baeb579d4ca0f716cb2868
+        //console.log("Receiver :", receiverId) //67baeb579d4ca0f716cb2868
 
         const senderId = req.user; // senders id (logged in user)
-        console.log("Sender :", senderId) // 67bbe2b0a23341f219e678d5
+        //console.log("Sender :", senderId) // 67bbe2b0a23341f219e678d5
 
         // const senderObjectId = new mongoose.Types.ObjectId(senderId);
         // const receiverObjectId = new mongoose.Types.ObjectId(receiverId);
@@ -72,17 +72,17 @@ const sendMessage = async(req, res) => {
 const getMessage = async(req, res) => {
     try {
         const { id: receiverId } = req.params; // receiver's ID
-        console.log("Receiver :", receiverId); // Receiver : 67baeb579d4ca0f716cb2868
+        //console.log("Receiver :", receiverId); // Receiver : 67baeb579d4ca0f716cb2868
 
         const senderId = req.user; // sender's ID (logged-in user)
-        console.log("Sender :", senderId); // Sender : 67bc35039a5b77fe15647be1
+        //console.log("Sender :", senderId); // Sender : 67bc35039a5b77fe15647be1
 
 
         // Find the conversation with both sender and receiver
         const conversation = await Conversations.findOne({
             participants: { $all: [senderId, receiverId] }
         }).populate("message");
-        console.log('conversationsss :', conversation) // conversationsss : null
+        //console.log('conversationsss :', conversation) // conversationsss : null
 
         // If conversation is not found, return early to prevent further execution
         if (!conversation) {
@@ -90,7 +90,7 @@ const getMessage = async(req, res) => {
         }
 
         const messages = conversation.message;
-        console.log("Messages :", messages);
+        //console.log("Messages :", messages);
 
         res.status(200).send(messages);
 

@@ -11,27 +11,17 @@ const useSocketMessages = () => {
 
         const handleNewMessage = (newMessage) => {
             console.log("Received new message via socket:", newMessage);
-
-            setMessages((prevMessages) => {
-                // Prevent duplicates
-                // if (prevMessages.some(m => m._id === newMessage._id)) return prevMessages;
-                return [...prevMessages, newMessage];
-            });
-
-        // Store selected conversation in localStorage before refreshing
-        // localStorage.setItem("selectedConversation", JSON.stringify(newMessage.sender));
-        // window.location.reload(); // Force refresh
+            setMessages((prevMessages) => [...prevMessages, newMessage]);
         };
 
         socket.on("newMessage", handleNewMessage);
 
         return () => {
-            socket.off("newMessage", handleNewMessage);
+            socket.off("newMessage");
         };
     }, [socket, setMessages]);
 
-    return null; // no need to return jsx
+    return null; // No need to return JSX
 };
 
 export default useSocketMessages;
-

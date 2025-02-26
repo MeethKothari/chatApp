@@ -19,7 +19,7 @@ try{
     console.log("connected to mongoDB !!")
 }
 catch(error){
-    console.log({message: error})
+    console.log({ "Mongo error message": error})
 }
 
 
@@ -28,7 +28,7 @@ catch(error){
 app.use(cors({
     origin: ["http://localhost:5173", "http://localhost:5174", "https://chat-app-chi-puce.vercel.app"], // Allow both localhost & vercel
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "authorization"],
     credentials: true
 }));
 

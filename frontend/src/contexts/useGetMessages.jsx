@@ -20,9 +20,9 @@ const useGetMessages = () => {
                 console.log("Fetched messages:", data);
 
                 if (Array.isArray(data)) {
-                    setMessages(data); // ✅ Overwrite with fresh messages
+                    setMessages(data); // Overwrite with fresh messages
                 } else {
-                    setMessages([]); // ✅ Prevent errors
+                    setMessages([]); // Prevent errors
                 }
             } catch (error) {
                 console.error("Error fetching messages:", error);
@@ -30,7 +30,7 @@ const useGetMessages = () => {
         };
 
         getMessages();
-    }, [selectedConversation]); // ✅ Fetch only when chat changes
+    }, [selectedConversation, authUser.token]); // Fetch only when chat changes
 
     return { messages: useConversation().messages };
 };
